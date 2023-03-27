@@ -48,7 +48,7 @@ app.use("/config", configRoute);
 app.use("/api", apiRoute);
 
 // Start the server
-app.listen(3004, () => console.log("Server started"));
+app.listen(3000, () => console.log("Server started"));
 
 mongoose
   .connect(
