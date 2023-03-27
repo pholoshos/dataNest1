@@ -1,1 +1,1 @@
-{"endPoints":[{"_id":"6421e5792998822e4bdb1642","method":"GET","handler":"(req,res)=>{res.send('created')}","path":"/app","__v":0}]}
+{"endPoints":[{"_id":"6421e5792998822e4bdb1642","method":"GET","handler":"(req,res)=>{res.send('created')}","path":"/app","__v":0},{"_id":"6421f1b2ca9e86527b3d9232","method":"GET","handler":"()=>res.send('users')","path":"/users","__v":0},{"_id":"6421f2769af481858a654645","method":"GET","handler":"(req,res)=>res.send('users')","path":"/user","__v":0}]}
