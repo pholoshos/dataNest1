@@ -12,7 +12,7 @@ router.get("/apis", async (req, res) => {
   res.send(data.toString());
 });
 
-// create a new account/ user
+
 router.post("/apis", (req, res) => {
   const { path, method, handler } = req.body;
 
@@ -27,7 +27,7 @@ router.post("/apis", (req, res) => {
 
 router.post("/generate",  async (req, res) => {
     const endPoints = await EndPoint.find({});
-    fs.writeFile('output.json', JSON.stringify({endPoints}), (err) => {
+    fs.writeFile('core/config/apiSource/output.json', JSON.stringify({endPoints}), (err) => {
         if (err) throw err;
         console.log('endpoints written to file',endPoints);
       });

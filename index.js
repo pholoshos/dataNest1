@@ -8,7 +8,7 @@ const app = express();
 const configRoute = require("./routes/apis");
 const apiRoute = require("./routes/api");
 
-const json = JSON.parse(fs.readFileSync("output.json"));
+const json = JSON.parse(fs.readFileSync("core/config/apiSource/output.json"));
 
 app.use(bodyParser.json());
 // Loop through the endpoint configuration and create the endpoints
