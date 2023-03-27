@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -62,5 +63,12 @@ endpointConfig.forEach((endpoint) => {
 
 });
 
+const configRoute = require('./routes/apis');
+
+app.use('/config',configRoute );
+
 // Start the server
 app.listen(3004, () => console.log("Server started"));
+
+mongoose.connect('mongodb+srv://pholosho:Victor03@datanest.dkyoyei.mongodb.net/?retryWrites=true&w=majority')
+  .then(() => console.log('Connected!'));
