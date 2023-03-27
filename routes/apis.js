@@ -12,7 +12,6 @@ router.get("/apis", async (req, res) => {
   res.send(data.toString());
 });
 
-
 router.post("/apis", (req, res) => {
   const { path, method, handler } = req.body;
 
@@ -33,6 +32,5 @@ router.post("/generate",  async (req, res) => {
       });
     res.send("config file");
 });
-
 
 module.exports = router;
