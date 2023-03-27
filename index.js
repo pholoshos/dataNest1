@@ -1,14 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const fs = require('fs')
+const fs = require("fs");
+const bodyParser = require('body-parser');
 
 const app = express();
 
 const configRoute = require("./routes/apis");
 const apiRoute = require("./routes/api");
 
-const json = JSON.parse(fs.readFileSync('output.json'));
+const json = JSON.parse(fs.readFileSync("output.json"));
 
+app.use(bodyParser.json());
 // Loop through the endpoint configuration and create the endpoints
 json.endPoints.forEach((endpoint) => {
   const { method, path, handler } = endpoint;

@@ -13,13 +13,15 @@ router.get("/apis", async (req, res) => {
 
 // create a new account/ user
 router.post("/apis", (req, res) => {
+  const { path, method, handler } = req.body;
+
   const endpoint = EndPoint.create({
-    method: "GET",
-    handler: "(req,res)=>{res.send('created')}",
-    path: "/app",
+    method: method,
+    handler: handler,
+    path: path,
   });
 
-  res.send("create:"+endpoint.toString());
+  res.send("create:" + endpoint.toString());
 });
 
 module.exports = router;
