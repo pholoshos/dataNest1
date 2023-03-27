@@ -1,39 +1,19 @@
 const express = require("express");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const fs = require('fs')
 
 const app = express();
 
-const json = `
-    [
-        {
-            "method" : "GET",
-            "path" : "/users",
-            "handler" : "(req,res)=>res.send('hello world')"
+const configRoute = require("./routes/apis");
+const apiRoute = require("./routes/api");
 
-        },
-        {
-            "method" : "GET",
-            "path" : "/places",
-            "handler" : "(req,res)=>res.send('places')"
-
-        },
-        {
-            "method" : "GET",
-            "path" : "/william",
-            "handler" : "(req,res)=>res.send('i am william')"
-
-        }
-    ]
-
-`;
-
-// Read the JSON configuration file
-const endpointConfig = JSON.parse(json);
+const json = JSON.parse(fs.readFileSync('output.json'));
 
 // Loop through the endpoint configuration and create the endpoints
-endpointConfig.forEach((endpoint) => {
+json.endPoints.forEach((endpoint) => {
   const { method, path, handler } = endpoint;
   const _handler = eval(handler);
+
   switch (method) {
     case "GET":
       app.get(path, (req, res) => {
@@ -60,15 +40,16 @@ endpointConfig.forEach((endpoint) => {
         _handler(req, res);
       });
   }
-
 });
 
-const configRoute = require('./routes/apis');
-
-app.use('/config',configRoute );
+app.use("/config", configRoute);
+app.use("/api", apiRoute);
 
 // Start the server
 app.listen(3004, () => console.log("Server started"));
 
-mongoose.connect('mongodb+srv://pholosho:Victor03@datanest.dkyoyei.mongodb.net/?retryWrites=true&w=majority')
-  .then(() => console.log('Connected!'));
+mongoose
+  .connect(
+    "mongodb+srv://pholosho:Victor03@datanest.dkyoyei.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then(() => console.log("Connected!"));

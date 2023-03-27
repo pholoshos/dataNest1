@@ -1,0 +1,1 @@
+{"endPoints":[{"_id":"6421e5792998822e4bdb1642","method":"GET","handler":"(req,res)=>{res.send('created')}","path":"/app","__v":0}]}
