@@ -19,18 +19,20 @@ router.post("/apis", (req, res) => {
     method: method,
     handler: handler,
     path: path,
-  });
+  }).
 
-  res.send("create:" + JSON.stringify(endpoint));
+  res.js( endpoint);
 });
 
 router.post("/generate",  async (req, res) => {
     const endPoints = await EndPoint.find({});
-    fs.writeFile('core/config/apiSource/output.json', JSON.stringify({endPoints}), (err) => {
+    fs.writeFile('core/config/apiSource/endpoints.json', JSON.stringify({endPoints}), (err) => {
         if (err) throw err;
         console.log('endpoints written to file',endPoints);
       });
     res.send("config file");
 });
+
+
 
 module.exports = router;
