@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 
 router.get("/apis", async (req, res) => {
   const data = await EndPoint.find({});
-  res.send(data.toString());
+  res.json(data);
 });
 
 router.post("/apis", (req, res) => {
@@ -21,7 +21,7 @@ router.post("/apis", (req, res) => {
     path: path,
   });
 
-  res.send("create:" + endpoint.toString());
+  res.send("create:" + JSON.stringify(endpoint));
 });
 
 router.post("/generate",  async (req, res) => {
