@@ -2,9 +2,9 @@
 const mongoose = require('mongoose');
 
 // Define a schema
-const apiSchema = new mongoose.Schema({
-  method: String,
-  handler: String,
+const mainApiSchema = new mongoose.Schema({
+  name: String,
+  description: String,
   path: String,
   createdDate :  {
     type: Date,
@@ -15,7 +15,7 @@ const apiSchema = new mongoose.Schema({
 });
 
 // Create a model from the schema
-const EndPoint = mongoose.model('endPoint', apiSchema);
+const MainApi = mongoose.model('MainApi', mainApiSchema);
 
 // Export the model
-module.exports = EndPoint;
+module.exports = MainApi;
