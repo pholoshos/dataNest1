@@ -6,7 +6,7 @@ const apiSchema = new mongoose.Schema({
   method: { type: String, required: true,unique: true },
   handler: { type: String, required: true },
   path: { type: String, required: true },
-  description : string,
+  description : String,
   createdDate: {
     type: Date,
     required: true,
