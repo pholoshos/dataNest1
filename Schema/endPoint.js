@@ -7,6 +7,12 @@ const apiSchema = new mongoose.Schema({
   handler: { type: String, required: true },
   path: { type: String, required: true },
   description : String,
+  example : {
+    type: String,
+    default : `{
+      "data" : "value"
+    }`
+  },
   createdDate: {
     type: Date,
     required: true,
