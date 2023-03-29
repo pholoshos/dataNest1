@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const fs = require("fs");
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
@@ -11,7 +12,13 @@ const dynamicRouter = require("./core/dynamicRouter");
 
 const json = JSON.parse(fs.readFileSync("core/config/apiSource/endpoints.json"));
 
+const corsOptions = {
+    origin: '*'
+};
+
+  app.use(cors(corsOptions));
 app.use(bodyParser.json());
+
 // Loop through the endpoint configuration and create the endpoints
 
 dynamicRouter(app,json.endPoints);

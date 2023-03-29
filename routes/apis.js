@@ -19,9 +19,9 @@ router.post("/apis", (req, res) => {
     method: method,
     handler: handler,
     path: path,
-  }).
+  })
 
-  res.js( endpoint);
+  res.json( endpoint);
 });
 
 router.post("/generate",  async (req, res) => {
