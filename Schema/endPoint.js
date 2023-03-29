@@ -9,7 +9,8 @@ const apiSchema = new mongoose.Schema({
   description : String,
   example : {
     type: String,
-    default : `{
+    default : `
+    {
       "data" : "value"
     }`
   },
