@@ -1,1 +1,112 @@
-{"endPoints":[{"example":"{\n      \"data\" : \"value\"\n    }","_id":"6421e5792998822e4bdb1642","method":"GET","handler":"(req,res)=>{res.send('created')}","path":"/app","__v":0,"createdDate":"2023-03-29T21:05:04.325Z"},{"example":"{\n      \"data\" : \"value\"\n    }","_id":"6421f1b2ca9e86527b3d9232","method":"GET","handler":"()=>res.send('users')","path":"/users","__v":0,"createdDate":"2023-03-29T21:05:04.326Z"},{"example":"{\n      \"data\" : \"value\"\n    }","_id":"6421f2769af481858a654645","method":"GET","handler":"(req,res)=>res.send('users')","path":"/user","__v":0,"createdDate":"2023-03-29T21:05:04.327Z"},{"example":"{\n      \"data\" : \"value\"\n    }","_id":"6421f938ec7105197d89e4f4","method":"GET","handler":"(req,res)=>res.send('hello mvelo')","path":"/mvelo","__v":0,"createdDate":"2023-03-29T21:05:04.327Z"},{"example":"{\n      \"data\" : \"value\"\n    }","_id":"6422a23f6997349dbf829ad2","method":"GET","handler":"(req,res)=>res.send('we want the money')","path":"/money","__v":0,"createdDate":"2023-03-29T21:05:04.327Z"},{"example":"{\n      \"data\" : \"value\"\n    }","_id":"6422a31975a7bf176c158f0c","method":"POST","handler":"(req,res)=>res.send('we want the money')","path":"/money","__v":0,"createdDate":"2023-03-29T21:05:04.328Z"},{"example":"{\n      \"data\" : \"value\"\n    }","_id":"6423041886aee6b4fef296ae","method":"GET","handler":"(req,res)=>res.json({message : 'hello scola'})","path":"/scola","createdDate":"2023-03-28T15:13:28.127Z","__v":0},{"example":"{\n      \"data\" : \"value\"\n    }","_id":"6423042f759168a6e19c4875","method":"GET","handler":"(req,res)=>res.json({message : 'hello scola'})","path":"/scola","createdDate":"2023-03-28T15:13:51.146Z","__v":0},{"example":"{\n      \"data\" : \"value\"\n    }","_id":"642304a8d30021e12fea4c47","method":"POST","handler":"(req,res)=>res.json({message : 'hello scola'})","path":"/scola","createdDate":"2023-03-28T15:15:52.308Z","__v":0},{"_id":"6424a7fcc671d0b2ef9b1f60","method":"POST","handler":"(req,res)=>res.json({message : 'hello scola'})","path":"/test","example":"{\n      \"data\" : \"value\"\n    }","createdDate":"2023-03-29T21:05:00.745Z","__v":0}]}
+{
+    "endPoints": [
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "6421e5792998822e4bdb1642",
+            "method": "GET",
+            "handler": "(req,res)=>{res.send('created')}",
+            "path": "/app",
+            "__v": 0,
+            "createdDate": "2023-04-02T19:19:43.205Z"
+        },
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "6421f1b2ca9e86527b3d9232",
+            "method": "GET",
+            "handler": "()=>res.send('users')",
+            "path": "/users",
+            "__v": 0,
+            "createdDate": "2023-04-02T19:19:43.206Z"
+        },
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "6421f2769af481858a654645",
+            "method": "GET",
+            "handler": "(req,res)=>res.send('users')",
+            "path": "/user",
+            "__v": 0,
+            "createdDate": "2023-04-02T19:19:43.206Z"
+        },
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "6421f938ec7105197d89e4f4",
+            "method": "GET",
+            "handler": "(req,res)=>res.send('hello mvelo')",
+            "path": "/mvelo",
+            "__v": 0,
+            "createdDate": "2023-04-02T19:19:43.206Z"
+        },
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "6422a23f6997349dbf829ad2",
+            "method": "GET",
+            "handler": "(req,res)=>res.send('we want the money')",
+            "path": "/money",
+            "__v": 0,
+            "createdDate": "2023-04-02T19:19:43.207Z"
+        },
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "6422a31975a7bf176c158f0c",
+            "method": "POST",
+            "handler": "(req,res)=>res.send('we want the money')",
+            "path": "/money",
+            "__v": 0,
+            "createdDate": "2023-04-02T19:19:43.208Z"
+        },
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "6423041886aee6b4fef296ae",
+            "method": "GET",
+            "handler": "(req,res)=>res.json({message : 'hello scola'})",
+            "path": "/scola",
+            "createdDate": "2023-03-28T15:13:28.127Z",
+            "__v": 0
+        },
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "6423042f759168a6e19c4875",
+            "method": "GET",
+            "handler": "(req,res)=>res.json({message : 'hello scola'})",
+            "path": "/scola",
+            "createdDate": "2023-03-28T15:13:51.146Z",
+            "__v": 0
+        },
+        {
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "_id": "642304a8d30021e12fea4c47",
+            "method": "POST",
+            "handler": "(req,res)=>res.json({message : 'hello scola'})",
+            "path": "/scola",
+            "createdDate": "2023-03-28T15:15:52.308Z",
+            "__v": 0
+        },
+        {
+            "_id": "6424a7fcc671d0b2ef9b1f60",
+            "method": "POST",
+            "handler": "(req,res)=>res.json({message : 'hello scola'})",
+            "path": "/test",
+            "example": "{\n      \"data\" : \"value\"\n    }",
+            "createdDate": "2023-03-29T21:05:00.745Z",
+            "__v": 0
+        },
+        {
+            "_id": "6424a9919258564cdb172f99",
+            "method": "POST",
+            "handler": "(req,res)=>res.json({message : 'hello scola'})",
+            "path": "/test2",
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "createdDate": "2023-03-29T21:11:45.115Z",
+            "__v": 0
+        },
+        {
+            "_id": "6429d547ad5a9162117b34f3",
+            "method": "POST",
+            "handler": "(req,res)=>res.json({cases : [{case:1},{case:2}]})",
+            "path": "/cases",
+            "example": "\n    {\n      \"data\" : \"value\"\n    }",
+            "createdDate": "2023-04-02T19:19:35.272Z",
+            "__v": 0
+        }
+    ]
+}
