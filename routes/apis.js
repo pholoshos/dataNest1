@@ -23,7 +23,7 @@ router.post("/apis", (req, res) => {
     });
     res.json(endpoint);
   } else {
-    res.json({ message: "missing data" });
+    res.status(500).json('error');
   }
 });
 
