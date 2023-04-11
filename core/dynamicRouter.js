@@ -1,7 +1,9 @@
+const createHandler = require("./handlers/handler");
+
 const dynamicRouter = (app, endPoints) => {
   endPoints.forEach((endpoint) => {
     const { method, path, handler } = endpoint;
-    const _handler = eval(handler);
+    const _handler = createHandler(handler);
 
     switch (method) {
       case "GET":
