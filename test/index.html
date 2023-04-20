@@ -1,0 +1,160 @@
+<html>
+<head>
+  <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #blocklyDiv {
+      height: 480px;
+      width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div id="blocklyDiv"></div>
+  <script>
+    // Create a workspace
+    var workspace = Blockly.inject('blocklyDiv', {
+      toolbox: document.getElementById('toolbox')
+    });
+
+    // Define blocks
+    Blockly.Blocks['html_tag'] = {
+      init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("html"), "tag");
+        this.appendStatementInput("content")
+            .setCheck(null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+      }
+    };
+
+    Blockly.Blocks['head_tag'] = {
+      init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("head"), "tag");
+        this.appendStatementInput("content")
+            .setCheck(null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+      }
+    };
+
+    Blockly.Blocks['body_tag'] = {
+      init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("body"), "tag");
+        this.appendStatementInput("content")
+            .setCheck(null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+      }
+    };
+
+    Blockly.Blocks['title_tag'] = {
+      init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("title"), "tag");
+        this.appendValueInput("content")
+            .setCheck("String");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+      }
+    };
+
+    Blockly.Blocks['h1_tag'] = {
+      init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("h1"), "tag");
+        this.appendValueInput("content")
+            .setCheck("String");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+      }
+    };
+
+    Blockly.Blocks['p_tag'] = {
+      init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldTextInput("p"), "tag");
+        this.appendValueInput("content")
+            .setCheck("String");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+      }
+    };
+
+    // Define generators
+    Blockly.JavaScript['html_tag'] = function(block) {
+      var tag = block.getFieldValue('tag');
+      var content = Blockly.JavaScript.statementToCode(block, 'content');
+      var code = '<' + tag + '>\n' + content + '</' + tag + '>\n';
+      return code;
+    };
+
+    Blockly.JavaScript['head_tag'] = function(block) {
+      var tag = block.getFieldValue('tag');
+      var content = Blockly.JavaScript.statementToCode(block, 'content');
+      var code = '<' + tag + '>\n' + content + '</' + tag + '>\n';
+      return code;
+    };
+
+    Blockly.JavaScript['body_tag'] = function(block) {
+      var tag = block.getFieldValue('tag');
+      var content = Blockly.JavaScript.statementToCode(block, 'content');
+      var code = '<' + tag + '>\n' + content + '</' + tag + '>\n';
+      return code;
+    };
+
+    Blockly.JavaScript['title_tag'] = function(block) {
+      var tag = block.getFieldValue('tag');
+      var content = Blockly.JavaScript.valueToCode(block, 'content', Blockly.JavaScript.ORDER_ATOMIC);
+      var code = '<' + tag + '>' + content + '</' + tag + '>\n';
+      return code;
+    };
+
+    Blockly.JavaScript['h1_tag'] = function(block) {
+      var tag = block.getFieldValue('tag');
+      var content = Blockly.JavaScript.valueToCode(block, 'content', Blockly.JavaScript.ORDER_ATOMIC);
+      var code = '<' + tag + '>' + content + '</' + tag + '>\n';
+      return code;
+    };
+
+    Blockly.JavaScript['p_tag'] = function(block) {
+        var tag = block.getFieldValue('tag');
+      var content = Blockly.JavaScript.valueToCode(block, 'content', Blockly.JavaScript.ORDER_ATOMIC);
+      var code = '<' + tag + '>' + content + '</' + tag + '>\n';
+      return code;
+    };
+
+    // Define toolbox
+    var toolbox = document.getElementById('toolbox');
+    toolbox.innerHTML = `
+      <xml id="toolbox" style="display: none">
+        <category name="HTML" colour="%{BKY_HTML_HUE}">
+          <block type="html_tag"></block>
+          <block type="head_tag"></block>
+          <block type="body_tag"></block>
+          <block type="title_tag"></block>
+          <block type="h1_tag"></block>
+          <block type="p_tag"></block>
+        </category>
+        <category name="Text" colour="%{BKY_TEXTS_HUE}">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+        </category>
+      </xml>
+    `;
+  </script>
+</body>
+</html>

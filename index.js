@@ -16,12 +16,11 @@ const corsOptions = {
     origin: '*'
 };
 
-  app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-// Loop through the endpoint configuration and create the endpoints
-
-dynamicRouter(app,json.endPoints);
+//use dynamic routes to create api
+dynamicRouter(app, json.endPoints);
 
 app.use("/config", configRoute);
 app.use("/api", apiRoute);
@@ -30,7 +29,7 @@ app.use("/api", apiRoute);
 app.listen(3000, () => console.log("Server started"));
 
 mongoose
-  .connect(
-    "mongodb+srv://pholosho:Victor03@datanest.dkyoyei.mongodb.net/?retryWrites=true&w=majority"
-  )
-  .then(() => console.log("Connected!"));
+    .connect(
+        "mongodb+srv://pholosho:Victor03@datanest.dkyoyei.mongodb.net/?retryWrites=true&w=majority"
+    )
+    .then(() => console.log("Connected!"));

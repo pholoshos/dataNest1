@@ -1,0 +1,34 @@
+{
+    "endpoints": [
+        {
+            "path": "/",
+            "method": "GET",
+            "handler": "(req, res) => {res.send('Hello World!')}"
+        },
+        {
+            "path": "/users",
+            "method": "GET",
+            "handler": "(req, res) => {res.send(getAll('users'))}"
+        },
+        {
+            "path": "/users/:id",
+            "method": "GET",
+            "handler": "(req, res) => {res.send(find('users', {id: req.params.id}))}"
+        },
+        {
+            "path": "/users",
+            "method": "POST",
+            "handler": "(req, res) => {add('users', req.body); res.send('User created')}"
+        },
+        {
+            "path": "/users/:id",
+            "method": "PUT",
+            "handler": "(req, res) => {let user = find('users', {id: req.params.id}); if (user) {user.name = req.body.name; user.email = req.body.email; res.send('User updated')} else {res.send('User not found')}}"
+        },
+        {
+            "path": "/users/:id",
+            "method": "DELETE",
+            "handler": "(req, res) => {let user = find('users', {id: req.params.id}); if (user) {delete('users', user); res.send('User deleted')} else {res.send('User not found')}}"
+        }
+    ]
+}
