@@ -8,6 +8,7 @@ def generator(command):
     entities = {}
     doc = nlp(command)
     print(doc.ents)
+    print("command:::"+command)
     for ent in doc.ents:
         entities[ent.label_] = ent.text
 

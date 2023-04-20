@@ -4,6 +4,7 @@ import random
 from spacy.util import minibatch, compounding
 from spacy.training import Example
 
+
 # Define a function to create a new NER component with the new labels
 def create_ner(nlp):
     # Get the NER component or create one if it doesn't exist
@@ -14,11 +15,12 @@ def create_ner(nlp):
         ner = nlp.get_pipe("ner")
 
     # Add the new entity labels to the NER component
-    ner.add_label("METHOD")
-    ner.add_label("ENDPOINT")
-    ner.add_label("API")
+    ner.add_label("methods")
+    ner.add_label("endpoint")
+    ner.add_label("api")
 
     return ner
+
 
 # Define a function to train the model on new data
 def train_model(nlp, data):
@@ -44,6 +46,7 @@ def train_model(nlp, data):
             # Print the losses
             print("Losses", losses)
 
+
 # Load the existing model
 nlp = spacy.load("en_core_web_sm")
 
@@ -52,18 +55,75 @@ ner = create_ner(nlp)
 
 # Prepare some sample training data with the new entity annotations
 TRAIN_DATA = [
-    ("I used the GET method to request data from the /users endpoint of the GitHub API.", {"entities": [(9, 12, "METHOD"), (37, 43, "ENDPOINT"), (51, 58, "API")]}),
-    ("The POST method allows you to create a new resource at the /posts endpoint of the WordPress API.", {"entities": [(4, 8, "METHOD"), (47, 53, "ENDPOINT"), (61, 71, "API")]}),
-    ("You can update an existing resource with the PUT method at the /products/{id} endpoint of the Shopify API.", {"entities": [(31, 34, "METHOD"), (38, 52, "ENDPOINT"), (60, 68, "API")]}),
-    ("To delete a resource, use the DELETE method at the /comments/{id} endpoint of the JSONPlaceholder API.", {"entities": [(16, 22, "METHOD"), (26, 40, "ENDPOINT"), (48, 63, "API")]})
+    (
+        "Create a GET endpoint to retrieve user data",
+        {"entities": [(7, 10, "method"), (11, 14, "endpoint"), (26, 35, "endpoint")]},
+    ),
+    (
+        "Add a POST endpoint to create a new user",
+        {"entities": [(4, 8, "method"), (9, 13, "endpoint"), (27, 35, "endpoint")]},
+    ),
+    (
+        "Update the PUT endpoint for editing user data",
+        {"entities": [(8, 11, "method"), (12, 15, "endpoint"), (25, 34, "endpoint")]},
+    ),
+    (
+        "Add a DELETE endpoint for removing user data",
+        {"entities": [(4, 10, "method"), (11, 17, "endpoint"), (30, 39, "endpoint")]},
+    ),
+    (
+        "Create a new API endpoint for retrieving all user data",
+        {"entities": [(11, 14, "method"), (24, 27, "api"), (44, 53, "endpoint")]},
+    ),
+    (
+        "Add an API endpoint for user authentication",
+        {"entities": [(3, 6, "method"), (7, 10, "api"), (22, 35, "endpoint")]},
+    ),
+    (
+        "Update the PATCH endpoint for editing user data",
+        {"entities": [(8, 13, "method"), (14, 19, "endpoint"), (31, 40, "endpoint")]},
+    ),
+    (
+        "Create a GET endpoint to retrieve a single user's data",
+        {"entities": [(7, 10, "method"), (11, 14, "endpoint"), (27, 34, "endpoint")]},
+    ),
+    (
+        "Add a PUT endpoint for updating a user's data",
+        {"entities": [(4, 7, "method"), (8, 11, "endpoint"), (28, 37, "endpoint")]},
+    ),
+    (
+        "Create a new API endpoint for managing user accounts",
+        {"entities": [(11, 14, "method"), (15, 18, "api"), (39, 52, "endpoint")]},
+    ),
+    (
+        "Add a PATCH endpoint for updating a user's data",
+        {"entities": [(4, 9, "method"), (10, 15, "endpoint"), (29, 38, "endpoint")]},
+    ),
+    (
+        "Create a new endpoint for retrieving user profile data",
+        {"entities": [(11, 15, "method"), (16, 24, "endpoint"), (39, 49, "endpoint")]},
+    ),
+    (
+        "Add a new endpoint for retrieving user activity data",
+        {"entities": [(4, 7, "method"), (8, 12, "endpoint"), (33, 44, "endpoint")]},
+    ),
+    (
+        "Create a new API endpoint for user messaging",
+        {"entities": [(11, 14, "method"), (15, 18, "api"), (31, 42, "endpoint")]},
+    ),
+    (
+        "Add an endpoint for retrieving user contact information",
+        {"entities": [(3, 6, "method"), (7, 12, "endpoint"), (29, 47, "endpoint")]},
+    ),
 ]
+
 
 def startTraining():
     train_model(nlp, TRAIN_DATA)
     # Test the updated model on some new texts
     test_texts = [
-        "How do I use the PATCH method to update a partial resource at the /todos/{id} endpoint of the Todoist API?",
-        "What is the difference between the GET and POST methods for the /search endpoint of the Twitter API?"
+        "Create a GET endpoint to retrieve user data",
+        "Add an api endpoint for user authentication",
     ]
 
     for text in test_texts:
@@ -71,4 +131,4 @@ def startTraining():
         print("Results:::", [(ent.text, ent.label_) for ent in doc.ents])
 
 
-
+startTraining()
