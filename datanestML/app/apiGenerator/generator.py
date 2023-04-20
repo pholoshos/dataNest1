@@ -1,19 +1,22 @@
 import spacy
-
+from .trainModel import startTraining
 nlp = spacy.load("en_core_web_sm")
 
 
-def create_api(command):
+def generator(command):
+    startTraining()
     entities = {}
     doc = nlp(command)
+    print(doc.ents)
     for ent in doc.ents:
         entities[ent.label_] = ent.text
 
     endpoint = entities.get("endpoint")
+    print(entities)
     if not endpoint:
         return "Please provide an endpoint."
 
-    method = entities.get("method", "GET")
+    method = entities.get("methods", "GET")
 
     handler = ""
     if method == "GET":
