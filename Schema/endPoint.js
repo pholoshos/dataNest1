@@ -7,6 +7,10 @@ const apiSchema = new mongoose.Schema({
   handler: { type: String, required: true },
   path: { type: String, required: true },
   description : String,
+  requireAuth : {
+    type : Boolean,
+    default : false,
+  },
   example : {
     type: String,
     default : `
