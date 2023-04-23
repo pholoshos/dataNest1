@@ -19,6 +19,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
+
 //use dynamic routes to create api
 dynamicRouter(app, json.endPoints);
 
