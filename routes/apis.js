@@ -27,6 +27,33 @@ router.post("/apis", (req, res) => {
   }
 });
 
+router.post("/ai", async (req, res) => {
+  const { message } = req.body;
+  const openaiApiKey = "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";
+
+  try {
+    const response = await axios.post(
+      "https://api.openai.com/v1/chat/completions",
+      {
+        messages: [{ role: "user", content: message }],
+        model: "gpt-3.5-turbo-0301",
+      },
+      {
+        headers: {
+          Authorization: `Bearer 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`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const reply = response.data.choices[0].message.content;
+    res.json({ result:reply });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
+
 router.post("/generate", async (req, res) => {
   const endPoints = await EndPoint.find({});
   fs.writeFile(
