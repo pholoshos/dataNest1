@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv/config");
 const fs = require("fs");
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -31,6 +32,6 @@ app.listen(3000, () => console.log("Server started"));
 
 mongoose
     .connect(
-        "mongodb+srv://pholosho:Victor03@datanest.dkyoyei.mongodb.net/?retryWrites=true&w=majority"
+       process.env.DB_CONNECTION
     )
     .then(() => console.log("Connected!"));
