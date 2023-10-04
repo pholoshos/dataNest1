@@ -30,7 +30,7 @@ router.post("/apis", (req, res) => {
 
 router.post("/ai", async (req, res) => {
   const { message } = req.body;
-  const openaiApiKey = "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";
+  const openaiApiKey = "";
 
   try {
     const response = await axios.post(
